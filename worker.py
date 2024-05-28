@@ -4,6 +4,7 @@ import os, json, tempfile
 os.environ["CUDA_VISIBLE_DEVICES"] = "1"
 
 llm = LLM(model="camenduru/Meta-Llama-3-8B-Instruct")
+tokenizer = llm.get_tokenizer()
 
 def generate(command):
     values = json.loads(command)
@@ -24,7 +25,7 @@ def generate(command):
     min_p = model['min_p']
     ignore_eos = model['ignore_eos']
 
-    # system_prompt = model['system_prompt']
+    system_prompt = model['system_prompt']
     # template = f"{system_prompt} {prompt}"
 
     sampling_params = SamplingParams(
@@ -39,8 +40,16 @@ def generate(command):
                     top_k=top_k,
                     min_p=min_p,
                     ignore_eos=ignore_eos,
+                    stop_token_ids=[tokenizer.eos_token_id, tokenizer.convert_tokens_to_ids("<|eot_id|>")],
                     )
-    outputs = llm.generate(prompt, sampling_params)
+    
+    message = [
+        {"role": "system", "content": system_prompt},
+        {"role": "user", "content": prompt},
+    ]
+    prompt_with_system = tokenizer.apply_chat_template(message, add_generation_prompt=True, tokenize=False)
+
+    outputs = llm.generate(prompt_with_system, sampling_params)
     text_to_save = outputs[0].outputs[0].text
 
     with tempfile.NamedTemporaryFile(delete=False, suffix=".txt") as temp_file:
