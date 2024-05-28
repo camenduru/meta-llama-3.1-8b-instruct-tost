@@ -1,0 +1,81 @@
+{
+    "$schema": "http://json-schema.org/draft-04/hyper-schema#",
+    "type": "object",
+    "properties": {
+      "readme": {
+        "type": "string",
+        "title": "Meta Llama v3 8B Instruct",
+        "author": "Meta-Llama",
+        "page": "https://ai.meta.com/blog/meta-llama-3/",
+        "code":"https://github.com/meta-llama/llama3",
+        "jupyter": "https://github.com/camenduru/text-generation-webui-colab",
+        "tags": [
+          "LLM"
+        ],
+        "widget": "readme"
+      },
+      "chat": {
+        "type": "string",
+        "widget": "chat"
+      },
+      "model": {
+        "type": "string",
+        "description": "Model Type",
+        "readOnly": "true"
+      },
+      "max_tokens": {
+        "type": "integer",
+        "description": "Maximum number of tokens to generate per output sequence."
+      },
+      "min_tokens": {
+        "type": "integer",
+        "description": "Minimum number of tokens to generate per output sequence."
+      },
+      "presence_penalty": {
+        "type": "number",
+        "description": "Float that penalizes new tokens based on whether they appear in the generated text so far. Values > 0 encourage the model to use new tokens, while values < 0 encourage the model to repeat tokens."
+      },
+      "frequency_penalty": {
+        "type": "number",
+        "description": "Float that penalizes new tokens based on their frequency in the generated text so far. Values > 0 encourage the model to use new tokens, while values < 0 encourage the model to repeat tokens."
+      },
+      "repetition_penalty": {
+        "type": "number",
+        "description": "Float that penalizes new tokens based on whether they appear in the prompt and the generated text so far. Values > 1 encourage the model to use new tokens, while values < 1 encourage the model to repeat tokens."
+      },
+      "length_penalty": {
+        "type": "number",
+        "description": "Float that penalizes sequences based on their length. Used in beam search."
+      },
+      "temperature": {
+        "type": "number",
+        "description": "Float that controls the randomness of the sampling. Lower values make the model more deterministic, while higher values make the model more random. Zero means greedy sampling."
+      },
+      "top_p": {
+        "type": "number",
+        "description": "Float that controls the cumulative probability of the top tokens to consider. Must be in (0, 1]. Set to 1 to consider all tokens."
+      },
+      "top_k": {
+        "type": "integer",
+        "description": "Integer that controls the number of top tokens to consider. Set to -1 to consider all tokens."
+      },
+      "min_p": {
+        "type": "number",
+        "description": "Float that represents the minimum probability for a token to be considered, relative to the probability of the most likely token. Must be in [0, 1]. Set to 0 to disable this."
+      },
+      "ignore_eos": {
+        "type": "boolean",
+        "description": "Whether to ignore the EOS token and continue generating tokens after the EOS token is generated."
+      },
+      "system_prompt": {
+        "type": "string",
+        "description": "A chat between a curious user and an artificial intelligence assistant. The assistant gives helpful, detailed, and polite answers to the user's questions."
+      }
+    },
+    "buttons": [
+      {
+        "id": "enter",
+        "label": "🥪 Enter"
+      }
+    ]
+  }
