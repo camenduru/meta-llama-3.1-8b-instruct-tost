@@ -2,7 +2,9 @@ import os, json, tempfile, requests, runpod
 
 from vllm import LLM, SamplingParams
 
-os.environ["CUDA_VISIBLE_DEVICES"] = "1"
+discord_token = os.getenv('com_camenduru_discord_token')
+web_uri = os.getenv('com_camenduru_web_uri')
+web_token = os.getenv('com_camenduru_web_token')
 
 llm = LLM(model="camenduru/Meta-Llama-3-8B-Instruct")
 tokenizer = llm.get_tokenizer()
