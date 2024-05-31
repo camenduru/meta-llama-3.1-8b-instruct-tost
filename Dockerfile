@@ -13,7 +13,9 @@ RUN apt update -y && add-apt-repository -y ppa:git-core/ppa && apt update -y && 
 
 USER camenduru
 
-RUN pip install -q opencv-python imageio imageio-ffmpeg ffmpeg-python av xformers==0.0.25 runpod \
+RUN pip install -q opencv-python imageio imageio-ffmpeg ffmpeg-python av runpod \
+    torch==2.3.0+cu121 torchvision==0.18.0+cu121 torchaudio==2.3.0+cu121 torchtext==0.18.0 torchdata==0.7.1 --extra-index-url https://download.pytorch.org/whl/cu121 \
+    xformers==0.0.26.post1 \
     https://github.com/Dao-AILab/flash-attention/releases/download/v2.5.8/flash_attn-2.5.8+cu122torch2.3cxx11abiTRUE-cp310-cp310-linux_x86_64.whl \
     https://github.com/camenduru/wheels/releases/download/tost/vllm-0.4.2-cp310-cp310-linux_x86_64.whl
 
