@@ -6,7 +6,7 @@ discord_token = os.getenv('com_camenduru_discord_token')
 web_uri = os.getenv('com_camenduru_web_uri')
 web_token = os.getenv('com_camenduru_web_token')
 
-llm = LLM(model="/content/model/Meta-Llama-3-8B-Instruct")
+llm = LLM(model="/content/model")
 tokenizer = llm.get_tokenizer()
 
 def generate(input):

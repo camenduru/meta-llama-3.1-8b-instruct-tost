@@ -18,17 +18,17 @@ RUN pip install -q opencv-python imageio imageio-ffmpeg ffmpeg-python av runpod 
     xformers==0.0.26.post1 \
     https://github.com/camenduru/wheels/releases/download/runpod/vllm-0.4.3-cp310-cp310-linux_x86_64.whl
 
-RUN aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/camenduru/Meta-Llama-3-8B-Instruct/raw/main/config.json -d /content/model/Meta-Llama-3-8B-Instruct -o config.json 
-RUN aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/camenduru/Meta-Llama-3-8B-Instruct/raw/main/generation_config.json -d /content/model/Meta-Llama-3-8B-Instruct -o generation_config.json 
-RUN aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/camenduru/Meta-Llama-3-8B-Instruct/resolve/main/model-00001-of-00004.safetensors -d /content/model/Meta-Llama-3-8B-Instruct -o model-00001-of-00004.safetensors 
-RUN aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/camenduru/Meta-Llama-3-8B-Instruct/resolve/main/model-00002-of-00004.safetensors -d /content/model/Meta-Llama-3-8B-Instruct -o model-00002-of-00004.safetensors 
-RUN aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/camenduru/Meta-Llama-3-8B-Instruct/resolve/main/model-00003-of-00004.safetensors -d /content/model/Meta-Llama-3-8B-Instruct -o model-00003-of-00004.safetensors 
-RUN aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/camenduru/Meta-Llama-3-8B-Instruct/resolve/main/model-00004-of-00004.safetensors -d /content/model/Meta-Llama-3-8B-Instruct -o model-00004-of-00004.safetensors 
-RUN aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/camenduru/Meta-Llama-3-8B-Instruct/raw/main/model.safetensors.index.json -d /content/model/Meta-Llama-3-8B-Instruct -o model.safetensors.index.json 
-RUN aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/camenduru/Meta-Llama-3-8B-Instruct/raw/main/special_tokens_map.json -d /content/model/Meta-Llama-3-8B-Instruct -o special_tokens_map.json 
-RUN aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/camenduru/Meta-Llama-3-8B-Instruct/raw/main/tokenizer.json -d /content/model/Meta-Llama-3-8B-Instruct -o tokenizer.json 
-RUN aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/camenduru/Meta-Llama-3-8B-Instruct/raw/main/tokenizer_config.json -d /content/model/Meta-Llama-3-8B-Instruct -o tokenizer_config.json 
-
+RUN aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/camenduru/Meta-Llama-3-8B-Instruct/raw/main/config.json -d /content/model -o config.json && \
+    aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/camenduru/Meta-Llama-3-8B-Instruct/raw/main/generation_config.json -d /content/model -o generation_config.json && \
+    aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/camenduru/Meta-Llama-3-8B-Instruct/resolve/main/model-00001-of-00004.safetensors -d /content/model -o model-00001-of-00004.safetensors && \
+    aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/camenduru/Meta-Llama-3-8B-Instruct/resolve/main/model-00002-of-00004.safetensors -d /content/model -o model-00002-of-00004.safetensors && \
+    aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/camenduru/Meta-Llama-3-8B-Instruct/resolve/main/model-00003-of-00004.safetensors -d /content/model -o model-00003-of-00004.safetensors && \
+    aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/camenduru/Meta-Llama-3-8B-Instruct/resolve/main/model-00004-of-00004.safetensors -d /content/model -o model-00004-of-00004.safetensors && \
+    aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/camenduru/Meta-Llama-3-8B-Instruct/raw/main/model.safetensors.index.json -d /content/model -o model.safetensors.index.json && \
+    aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/camenduru/Meta-Llama-3-8B-Instruct/raw/main/special_tokens_map.json -d /content/model -o special_tokens_map.json && \
+    aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/camenduru/Meta-Llama-3-8B-Instruct/raw/main/tokenizer.json -d /content/model -o tokenizer.json && \
+    aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/camenduru/Meta-Llama-3-8B-Instruct/raw/main/tokenizer_config.json -d /content/model -o tokenizer_config.json
+ 
 COPY ./worker_runpod.py /content/Meta-Llama-3-8B-Instruct/worker_runpod.py
 WORKDIR /content/Meta-Llama-3-8B-Instruct
 CMD python worker_runpod.py
