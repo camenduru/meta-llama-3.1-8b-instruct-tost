@@ -70,6 +70,10 @@
       "system_prompt": {
         "type": "string",
         "description": "System Prompt"
+      },
+      "seed": {
+        "type": "integer",
+        "description": "Random seed to use for the generation."
       }
     },
     "buttons": [
