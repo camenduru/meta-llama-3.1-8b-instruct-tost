@@ -26,6 +26,7 @@ def generate(input):
     top_p = model['top_p']
     top_k = model['top_k']
     min_p = model['min_p']
+    seed = model['seed']
     ignore_eos = model['ignore_eos']
 
     system_prompt = model['system_prompt']
@@ -42,6 +43,7 @@ def generate(input):
                     top_p=top_p, 
                     top_k=top_k,
                     min_p=min_p,
+                    seed=seed,
                     ignore_eos=ignore_eos,
                     stop_token_ids=[tokenizer.eos_token_id, tokenizer.convert_tokens_to_ids("<|eot_id|>")],
                     )
