@@ -29,6 +29,6 @@ RUN aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co
     aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/camenduru/Meta-Llama-3-8B-Instruct/raw/main/tokenizer.json -d /content/model -o tokenizer.json && \
     aria2c --console-log-level=error -c -x 16 -s 16 -k 1M https://huggingface.co/camenduru/Meta-Llama-3-8B-Instruct/raw/main/tokenizer_config.json -d /content/model -o tokenizer_config.json
  
-COPY ./worker_runpod.py /content/chat/worker_runpod.py
-WORKDIR /content/chat
+COPY ./worker_runpod.py /content/worker_runpod.py
+WORKDIR /content
 CMD python worker_runpod.py
