@@ -5,8 +5,9 @@ from vllm import LLM, SamplingParams
 discord_token = os.getenv('com_camenduru_discord_token')
 web_uri = os.getenv('com_camenduru_web_uri')
 web_token = os.getenv('com_camenduru_web_token')
+max_model_len = int(os.getenv('max_model_len', default='42496'))
 
-llm = LLM(model="/content/model")
+llm = LLM(model="/content/model", max_model_len=max_model_len)
 tokenizer = llm.get_tokenizer()
 
 def generate(input):
