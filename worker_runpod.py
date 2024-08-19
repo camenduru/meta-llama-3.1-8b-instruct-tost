@@ -2,7 +2,9 @@ import os, json, tempfile, requests, runpod
 
 from vllm import LLM, SamplingParams
 
-llm = LLM(model="/content/model")
+max_model_len = int(os.getenv('max_model_len', default='42496'))
+
+llm = LLM(model="/content/model", max_model_len=max_model_len)
 tokenizer = llm.get_tokenizer()
 
 def generate(input):

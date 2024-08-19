@@ -1,5 +1,5 @@
 {
-    "model": "chat-meta-llama-3-8b-instruct",
+    "model": "chat-meta-llama-3.1-8b-instruct",
     "max_tokens": 512,
     "min_tokens": 1,
     "presence_penalty": 0,

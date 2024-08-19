@@ -4,11 +4,12 @@
   "properties": {
     "readme": {
       "type": "string",
-      "title": "Meta Llama v3 8B Instruct",
+      "title": "Meta Llama v3.1 8B Instruct",
       "author": "Meta-Llama",
       "page": "https://ai.meta.com/blog/meta-llama-3/",
       "code": "https://github.com/meta-llama/llama3",
       "jupyter": "https://github.com/camenduru/text-generation-webui-colab",
+      "api": "https://github.com/camenduru/tost-api-examples/blob/main/v1/chat-meta-llama-3.1-8b-instruct.ipynb",
       "tags": [
         "LLM"
       ],
