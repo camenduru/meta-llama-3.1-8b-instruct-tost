@@ -12,4 +12,4 @@ https://github.com/meta-llama/llama3
 https://ai.meta.com/blog/meta-llama-3/
 
 ### 🏢 Sponsor
-https://runpod.io
+[https://runpod.io](https://runpod.io?ref=iqi9iy8y)
